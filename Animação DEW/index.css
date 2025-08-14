@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans';
+    background-color: #cccccc;
+    animation-name: fundo;
+    animation-duration: 9.7s;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+}
+
+header h1 {
+    position: absolute;
+    left: 40%;
+    font-size: 50px;
+    opacity: 0;
+    animation-name: cima;
+    animation-duration: 2s;
+    animation-delay: 25.5s;
+    animation-fill-mode: forwards;
+}
+
+.contagem {
+    position: absolute;
+    font-size: 100px;
+    left: 50%;
+    top: 42%;
+    opacity: 0;
+    animation-name: contagem;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#prepare {
+    position: absolute;
+    font-size: 100px;
+    left: 30%;
+    top: 40%;
+    opacity: 0;
+    animation-name: prepare;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#tres {
+    animation-delay: 2s;
+}
+
+#dois {
+    animation-delay: 4s;
+}
+
+#um {
+    animation-delay: 6s;
+}
+
+#ja {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    opacity: 0;
+    font-size: 100px;
+    animation-name: ja;
+    animation-duration: 2s;
+    animation-delay: 8s;
+    animation-fill-mode: forwards;
+}
+
+#int {
+    color: #cb0804;
+}
+
+#fod
+{
+    color: #1f9324;
+}
+
+#c {
+    opacity: 0;
+    position: absolute;
+    width: 91px;
+    height: 91px;
+    background-color: #cb0804;
+    border-radius: 100%;
+    animation-name: ccl;
+    animation-duration: 12s;
+    animation-delay: 14s;
+    animation-fill-mode: forwards;
+}
+
+.q {
+    opacity: 0;
+    position: absolute;
+    width: 91px;
+    height: 91px;
+    background-color: #1f9324;
+    border-radius: 9px;
+    animation-duration: 4s;
+    animation-delay: 10s;
+    animation-fill-mode: forwards;
+}
+
+#dgn-eqd {
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    width: 300px;
+    height: 70px;
+    background-color: red;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation-name: xzinho;
+    animation-duration: 1s;
+    animation-delay: 17.5s;
+}
+
+#dgn-drt {
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    width: 300px;
+    height: 70px;
+    background-color: red;
+    transform: rotate(45deg);
+    opacity: 0;
+    animation-name: xzinho;
+    animation-duration: 1s;
+    animation-delay: 17.5s;
+}
+
+#dgn-eqd2 {
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    width: 300px;
+    height: 70px;
+    background-color: red;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation-name: xzinho;
+    animation-duration: 1s;
+    animation-delay: 21s;
+}
+
+#dgn-drt2 {
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    width: 300px;
+    height: 70px;
+    background-color: red;
+    transform: rotate(45deg);
+    opacity: 0;
+    animation-name: xzinho;
+    animation-duration: 1s;
+    animation-delay: 21s;
+}
+
+#pt-baixo {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    width: 150px;
+    height: 70px;
+    background-color: lime;
+    transform: rotate(45deg);
+    opacity: 0;
+    animation-name: certinho;
+    animation-duration: 1s;
+    animation-delay: 24s;
+}
+
+#pt-cima {
+    position: absolute;
+    left: 12%;
+    top: 45%;
+    width: 300px;
+    height: 70px;
+    background-color: lime;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation-name: certinho;
+    animation-duration: 1s;
+    animation-delay: 24s;
+}
+
+#explosao {
+    position: absolute;
+    left: 22%;
+    top: -12%;
+    width: 850px;
+    height: 850px;
+    opacity: 0;
+    animation-name: bum;
+    animation-duration: 2s;
+    animation-delay: 24.5s;
+}
+
+.titulozinhos {
+    position: absolute;
+    font-size: 90px;
+    animation-name: titulos;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+#ciencia {
+    animation-delay: 26.5s;
+}
+
+#tecnologia {
+    animation-delay: 29s;
+}
+
+#educacao {
+    animation-delay: 31s;
+}
+
+#if {
+    position: absolute;
+    display: inline;
+    left: 25%;
+    font-size: 90px;
+    animation-name: ifzin;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-delay: 32.5s;
+}
+
+#campus {
+    position: absolute;
+    font-size: 90px;
+    left: 8%;
+    top: 42%;
+    animation-name: laterais;
+    animation-duration: 1s;
+    animation-delay: 34s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#birigui {
+    position: absolute;
+    font-size: 90px;
+    left: 72%;
+    top: 42%;
+    animation-name: laterais;
+    animation-duration: 1s;
+    animation-delay: 34.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes contagem {
+    0% {opacity: 0;}
+    25% {opacity: .50;}
+    50% {opacity: 1;}
+    75% {opacity: .50;}
+    99% {opacity: 0;}
+    100% {display: none;}
+}
+
+@keyframes prepare {
+    25% {opacity: .50; color: white;}
+    50% {opacity: 1; color: white;}
+    75% {opacity: .50;}
+    100% {display: none;}
+}
+
+@keyframes ja {
+    0% {opacity: 0;}
+    25% {opacity: .50;}
+    50% {opacity: 1;}
+    75% {opacity: .50;}
+    99% {opacity: 0;}
+}
+
+@keyframes fundo {
+    11.1111111111% {background-color: black;}
+    22.2222222222% {background-color: #646464;}
+    55.5555555555% {background-color: #7f7f7f;}
+    66.6666666666% {background-color: #afafaf;}
+    77.7777777777% {background-color: #c8c8c8;}
+    88.8888888888% {background-color: #e9e9e9;}
+    100% {background-color: white;}
+}
+
+@keyframes q1 {
+    0% {left: 0; top: 190px; opacity: 1;}
+    25% {left: 12.5%; top: 190px; opacity: 1;}
+    50% {left: 25%; top: 190px; opacity: 1;}
+    75% {left: 37.5%; top: 190px; opacity: 1;}
+    100% {left: 50%; top: 190px; opacity: 1;}
+}
+
+@keyframes q2 {
+    0% {left: 0; top: 190px; opacity: 1;}
+    25% {left: 12.5%; top: 190px; opacity: 1;}
+    50% {left: 37.5%; top: 190px; opacity: 1;}
+    75% {left: 50%; top: 190px; opacity: 1;}
+    100% {left: 59%; top: 190px; opacity: 1;}
+}
+
+@keyframes q3 {
+    0% {left: 0; top: 301px; opacity: 1;}
+    25% {left: 12.5%; top: 301px; opacity: 1;}
+    50% {left: 37.5%; top: 301px; opacity: 1;}
+    75% {left: 50%; top: 301px; opacity: 1;}
+    100% {left: 41%; top: 301px; opacity: 1;}
+}
+
+@keyframes q4 {
+    0% {left: 0; top: 301px; opacity: 1;}
+    25% {left: 12.5%; top: 301px; opacity: 1;}
+    50% {left: 25%; top: 301px; opacity: 1;}
+    75% {left: 37.5%; top: 301px; opacity: 1;}
+    100% {left: 50%; top: 301px; opacity: 1;}
+}
+
+@keyframes q5 {
+    0% {left: 0; top: 412px; opacity: 1;}
+    25% {left: 12.5%; top: 412px; opacity: 1;}
+    50% {left: 37.5%; top: 412px; opacity: 1;}
+    75% {left: 50%; top: 412px; opacity: 1;}
+    100% {left: 41%; top: 412px; opacity: 1;}
+}
+
+@keyframes q6 {
+    0% {left: 0; top: 412px; opacity: 1;}
+    25% {left: 12.5%; top: 412px; opacity: 1;}
+    50% {left: 25%; top: 412px; opacity: 1;}
+    75% {left: 37.5%; top: 412px; opacity: 1;}
+    100% {left: 50%; top: 412px; opacity: 1;}
+}
+
+@keyframes q7 {
+    0% {left: 0; top: 412px; opacity: 1;}
+    25% {left: 12.5%; top: 412px; opacity: 1;}
+    50% {left: 37.5%; top: 412px; opacity: 1;}
+    75% {left: 50%; top: 412px; opacity: 1;}
+    100% {left: 59%; top: 412px; opacity: 1;}
+}
+
+@keyframes q8 {
+    0% {left: 0; top: 523px; opacity: 1;}
+    25% {left: 12.5%; top: 523px; opacity: 1;}
+    50% {left: 37.5%; top: 523px; opacity: 1;}
+    75% {left: 50%; top: 523px; opacity: 1;}
+    100% {left: 41%; top: 523px; opacity: 1;}
+}
+
+@keyframes q9 {
+    0% {left: 0; top: 523px; opacity: 1;}
+    25% {left: 12.5%; top: 523px; opacity: 1;}
+    50% {left: 25%; top: 523px; opacity: 1;}
+    75% {left: 37.5%; top: 523px; opacity: 1;}
+    100% {left: 50%; top: 523px; opacity: 1;}
+}
+
+@keyframes ccl {
+    0% {left: 0; opacity: 1;}
+    7.1428% {left: 41%; opacity: 1;}
+    14.2857% {left: 68%; opacity: 1;}
+    21.4285% {left: 68%; top: 523px; opacity: 1;}
+    28.5713% {left: 59%; top: 523px; opacity: 1;}
+    35.7141% {left: 59%; top: 523px; opacity: 1;}
+    42.8569% {left: 68%; top: 523px; opacity: 1;}
+    49.9997% {left: 68%; top: 301px; opacity: 1;}
+    57.1425% {left: 59%; top: 301px; opacity: 1;}
+    64.2853% {left: 59%; top: 301px; opacity: 1;}
+    71.4281% {left: 68%; top: 301px; opacity: 1;}
+    78.5709% {left: 68%; opacity: 1;}
+    85.7137% {left: 41%; top: 190px; opacity: 1;}
+    92.8565% {left: 41%; top: 190px; opacity: 1;}
+    99.9993% {left: 41%; top: 190px; opacity: 1;}
+    100% {left: 41%; top: 190px; opacity: 1;}
+}
+
+@keyframes xzinho {
+    0% {opacity: .50;}
+    50% {opacity: 1; width: 350px;}
+    75% {opacity: 1; width: 300px;}
+}
+
+@keyframes certinho {
+    0% {opacity: 0;}
+    20% {opacity: .50;}
+    25% {opacity: 1; width: 200px;}
+    100% {opacity: 1;}
+}
+
+@keyframes cima {
+    0% {opacity: 0;}
+    52% {opacity: .25;}
+    50% {opacity: .50;}
+    75% {opacity: .75;}
+    100% {opacity: 1;}
+}
+
+@keyframes bum {
+    0% {opacity: 1;}
+    50% {opacity: 1;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes titulos {
+    0% {left: 0%; opacity: 1;}
+    100% {left: 100%; opacity: 1;}
+}
+
+@keyframes ifzin {
+    0% {font-size: 50px; opacity: 1;}
+    100% {font-size: 90px; opacity: 1;}
+}
+
+@keyframes laterais {
+    0% {opacity: .01}
+    100% {opacity: 1;}
+}
+
+#q1 {
+    animation-name: q1;
+}
+
+#q2 {
+    animation-name: q2;
+}
+
+#q3 {
+    animation-name: q3;
+}
+
+#q4 {
+    animation-name: q4;
+}
+
+#q5 {
+    animation-name: q5;
+}
+
+#q6 {
+    animation-name: q6;
+}
+
+#q7 {
+    animation-name: q7;
+}
+
+#q8 {
+    animation-name: q8;
+}
+
+#q9 {
+    animation-name: q9;
+}
