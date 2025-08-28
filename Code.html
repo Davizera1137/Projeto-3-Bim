@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IFSP - Educação, Ciência e Tecnologia em 3D</title>
+  <link rel="shortcut icon" href="logo_ifsp.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      height: 100vh;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transform-style: preserve-3d;
+    }
+
+    /* INTRO - Textos 3D */
+    .intro {
+      transform-style: preserve-3d;
+    }
+
+    .intro h1,
+    .intro h2,
+    .intro h3 {
+      opacity: 0;
+      transform: translateY(-30px) translateZ(100px) rotateX(-90deg);
+      animation: fadeInUp3D 1.5s ease forwards;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+    
+    .fade-in {
+      animation-delay: 0.5s;
+    }
+    
+    .delay-1 {
+      animation-delay: 2s !important;
+    }
+    
+    .delay-2 {
+      animation-delay: 4s !important;
+    }
+
+    /* GRID 4×3 PARA O LOGO EM 3D */
+    .animation-sequence {
+      display: grid;
+      grid-template-columns: repeat(3, 90px);
+      grid-template-rows: repeat(4, 90px);
+      gap: 10px;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fadeIn 1s ease 6s forwards;
+      transform-style: preserve-3d;
+      transform: rotateX(20deg) rotateY(0deg);
+    }
+
+    /* CÍRCULO VERMELHO 3D */
+    .animation-sequence .circle {
+      grid-row: 1;
+      grid-column: 1;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #cb0804);
+      animation: bounce3D 3s infinite ease-in-out 6s, glow 2s infinite alternate;
+      box-shadow: 0 0 20px rgba(203, 8, 4, 0.7);
+      transform: translateZ(20px);
+      position: relative;
+    }
+
+    .animation-sequence .circle:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #cb0804, #8b0000);
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    /* QUADRADOS VERDES 3D */
+    .animation-sequence .block {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #2ecc71, #1f9324);
+      opacity: 0;
+      animation: appear3D 1s forwards;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transform-style: preserve-3d;
+      border-radius: 8px;
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+
+    .animation-sequence .block:hover {
+      transform: translateZ(20px) rotateY(10deg);
+    }
+
+    .animation-sequence .block:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      background: linear-gradient(135deg, #1f9324, #145a21);
+      border-radius: 5px;
+      filter: blur(2px);
+      z-index: -1;
+    }
+
+    /* POSICIONAMENTO E DELAYS */
+    .animation-sequence .block:nth-of-type(1) {
+      grid-row: 1; grid-column: 2; animation-delay: 6.5s;
+      transform: rotateY(15deg) translateZ(10px);
+    }
+    .animation-sequence .block:nth-of-type(2) {
+      grid-row: 1; grid-column: 3; animation-delay: 6.7s;
+      transform: rotateY(-15deg) translateZ(10px);
+    }
+
+    .animation-sequence .block:nth-of-type(3) {
+      grid-row: 2; grid-column: 1; animation-delay: 6.9s;
+      transform: rotateX(15deg) translateZ(10px);
+    }
+    .animation-sequence .block:nth-of-type(4) {
+      grid-row: 2; grid-column: 2; animation-delay: 7.1s;
+      transform: rotateX(-15deg) translateZ(10px);
+    }
+
+    .animation-sequence .block:nth-of-type(5) {
+      grid-row: 3; grid-column: 1; animation-delay: 7.3s;
+      transform: rotateY(15deg) rotateX(15deg) translateZ(10px);
+    }
+    .animation-sequence .block:nth-of-type(6) {
+      grid-row: 3; grid-column: 2; animation-delay: 7.5s;
+      transform: rotateY(-15deg) rotateX(-15deg) translateZ(10px);
+    }
+    .animation-sequence .block:nth-of-type(7) {
+      grid-row: 3; grid-column: 3; animation-delay: 7.7s;
+      transform: rotateY(15deg) rotateX(-15deg) translateZ(10px);
+    }
+
+    .animation-sequence .block:nth-of-type(8) {
+      grid-row: 4; grid-column: 1; animation-delay: 7.9s;
+      transform: rotateY(-15deg) rotateX(15deg) translateZ(10px);
+    }
+    .animation-sequence .block:nth-of-type(9) {
+      grid-row: 4; grid-column: 2; animation-delay: 8.1s;
+      transform: rotateY(15deg) rotateX(15deg) translateZ(10px);
+    }
+
+    /* FINAL MESSAGE 3D */
+    .final-message {
+      margin-top: 40px;
+      opacity: 0;
+      transform: translateY(30px) translateZ(50px) rotateX(-20deg);
+      animation: fadeInUp3D 1.5s ease forwards 9s;
+      transform-style: preserve-3d;
+    }
+    
+    .ifsp-text {
+      font-size: 5rem;
+      color: #fff;
+      text-shadow: 
+        0 1px 0 #ccc, 
+        0 2px 0 #c9c9c9, 
+        0 3px 0 #bbb, 
+        0 4px 0 #b9b9b9, 
+        0 5px 0 #aaa, 
+        0 6px 1px rgba(0,0,0,.1), 
+        0 0 5px rgba(0,0,0,.1), 
+        0 1px 3px rgba(0,0,0,.3), 
+        0 3px 5px rgba(0,0,0,.2), 
+        0 5px 10px rgba(0,0,0,.25), 
+        0 10px 10px rgba(0,0,0,.2), 
+        0 20px 20px rgba(0,0,0,.15);
+      animation: pulse3D 3s infinite ease-in-out;
+      transform: translateZ(50px);
+    }
+    
+    .final-message p {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transform: translateZ(30px);
+    }
+    
+    .red {
+      color: #ff6b6b;
+      text-shadow: 0 0 10px rgba(203, 8, 4, 0.7);
+    }
+    
+    .green {
+      color: #2ecc71;
+      text-shadow: 0 0 10px rgba(31, 147, 36, 0.7);
+    }
+    
+    .blue {
+      color: #3498db;
+      text-shadow: 0 0 10px rgba(10, 74, 163, 0.7);
+    }
+
+    /* Partículas 3D de fundo */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    /* ANIMAÇÕES 3D */
+    @keyframes fadeInUp3D {
+      to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0) rotateX(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes bounce3D {
+      0%, 100% {
+        transform: translateZ(20px) translateY(0);
+      }
+      50% {
+        transform: translateZ(40px) translateY(-20px);
+      }
+    }
+    
+    @keyframes appear3D {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px rgba(203, 8, 4, 0.7);
+      }
+      to {
+        box-shadow: 0 0 40px rgba(255, 0, 0, 0.9), 0 0 70px rgba(255, 0, 0, 0.6);
+      }
+    }
+    
+    @keyframes pulse3D {
+      0%, 100% {
+        transform: translateZ(50px) scale(1);
+        text-shadow: 
+          0 1px 0 #ccc, 
+          0 2px 0 #c9c9c9, 
+          0 3px 0 #bbb, 
+          0 4px 0 #b9b9b9, 
+          0 5px 0 #aaa, 
+          0 6px 1px rgba(0,0,0,.1), 
+          0 0 5px rgba(0,0,0,.1), 
+          0 1px 3px rgba(0,0,0,.3), 
+          0 3px 5px rgba(0,0,0,.2), 
+          0 5px 10px rgba(0,0,0,.25), 
+          0 10px 10px rgba(0,0,0,.2), 
+          0 20px 20px rgba(0,0,0,.15);
+      }
+      50% {
+        transform: translateZ(70px) scale(1.1);
+        text-shadow: 
+          0 1px 0 #ccc, 
+          0 2px 0 #c9c9c9, 
+          0 3px 0 #bbb, 
+          0 4px 0 #b9b9b9, 
+          0 5px 0 #aaa, 
+          0 6px 1px rgba(0,0,0,.1), 
+          0 0 10px rgba(0,0,0,.2), 
+          0 1px 10px rgba(0,0,0,.4), 
+          0 10px 10px rgba(0,0,0,.3), 
+          0 15px 15px rgba(0,0,0,.25), 
+          0 20px 20px rgba(0,0,0,.2), 
+          0 30px 30px rgba(0,0,0,.15);
+      }
+    }
+    
+    @keyframes float3D {
+      0%, 100% {
+        transform: translateZ(0) rotateY(0);
+      }
+      33% {
+        transform: translateZ(50px) rotateY(5deg);
+      }
+      66% {
+        transform: translateZ(30px) rotateY(-5deg);
+      }
+    }
+    
+    @keyframes particleAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(0) translateZ(-100px) rotate(0deg) scale(0.5);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-1000px) translateZ(100px) rotate(720deg) scale(1.5);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+      <div class="intro">
+        <h1 class="fade-in">Instituto Federal</h1>
+        <h2 class="fade-in delay-1">de Educação, Ciência e Tecnologia</h2>
+        <h3 class="fade-in delay-2">Câmpus Birigui</h3>
+      </div>
+
+      <div class="animation-sequence">
+        <div class="circle"></div>
+
+        <div class="block"></div>
+        <div class="block"></div>
+
+        <div class="block"></div>
+        <div class="block"></div>
+
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+
+      <div class="final-message">
+        <h1 class="ifsp-text">IFSP</h1>
+        <p>
+          Construindo o futuro com
+          <span class="green">tecnologia</span>,
+          <span class="red">ciência</span> e
+          <span class="blue">educação</span>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Criar partículas 3D animadas
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles');
+      const colors = ['#1f9324', '#cb0804', '#0a4aa3', '#ffffff'];
+      
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Propriedades aleatórias
+        const size = Math.random() * 15 + 5;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 20;
+        const duration = Math.random() * 25 + 15;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.background = color;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animation = `particleAnimation ${duration}s linear infinite ${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+
+      // Adicionar interatividade 3D com movimento do mouse
+      const scene = document.querySelector('.scene');
+      const container = document.querySelector('.container');
+      
+      document.addEventListener('mousemove', (e) => {
+        let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        
+        container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      });
+    });
+  </script>
+</body>
+</html>
